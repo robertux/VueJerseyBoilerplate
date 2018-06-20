@@ -25,7 +25,21 @@ var vueApp = new Vue({
 					this.message = 'Error ' + response.status + '!'
 				}
 			}, response => {
-				this.message = 'Error ' + response.status + '!'
+				this.message = 'Error!';
+			});
+		},
+		uploadData: function() {
+			var formData = new FormData();
+			formData.append('file', document.getElementById('updFile').files[0]);
+			
+			this.$http.post('/FileUploadTest/api/test/upload', formData).then(response => {
+				if (response.status == 200) {
+					this.message = 'Uploaded' + response.body + '!';
+				} else {
+					this.message = 'Error ' + response.status + '!'
+				}
+			}, response => {
+				this.message = 'Error!';
 			});
 		}
 	}

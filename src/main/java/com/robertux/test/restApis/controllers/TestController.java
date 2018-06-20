@@ -105,6 +105,6 @@ public class TestController {
 		}
 		System.out.println("Read " + totalRead + " bytes total");
 		
-		return Response.ok().build();
+		return Response.ok().entity(fileMetaData.getFileName()).build();
 	}
 }
