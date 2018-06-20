@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test Data</title>
+</head>
+<body>
+	<div id="main-app">
+		<div><p>{{message}}</p></div>
+		<table id="tblData">
+			<thead><tr><th>ID</th><th>Name</th><th>Start Date</th><th>Amount</th></tr></thead>
+			<tbody><tr v-for="data in testData"><td>{{data.id}}</td><td>{{data.name}}</td><td>{{data.startDate}}</td><td>{{data.amount}}</td></tr></tbody>
+		</table>
+		<form id="frmTest">
+			<p>
+				<label for="txtName">Name</label>
+				<input type="text" name="name" id="txtName" v-model="newData.name" />
+			</p>
+			<p>
+				<label for="txtStartDate">Start Date</label>
+				<input type="date" name="startDate" id="txtStartDate" v-model="newData.startDate" />
+			</p>
+			<p>
+				<label for="txtAmount">Amount</label>
+				<input type="number" name="amount" id="txtAmount" v-model="newData.amount" />
+			</p>
+			<p>
+				<label for="updFile">File</label>
+				<input type="file" name="file" id="updFile" />
+			</p>
+			<p>
+				<button type="button" id="btnSubmit" v-on:click="submitData()">Submit data</button>
+			</p>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/vue.min.js"></script>
+	<script type="text/javascript" src="js/vue-resource.min.js"></script>
+	<script type="text/javascript" src="js/main.app.js"></script>
+</body>
+</html>
