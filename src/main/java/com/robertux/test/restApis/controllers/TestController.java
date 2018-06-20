@@ -87,10 +87,13 @@ public class TestController {
 		}
 		
 		int read = 0;
+		int totalRead = 0;
 		byte[] bytes = new byte[1024];
 		try {
+			System.out.println("Uploading file " + uploadFile.getAbsolutePath());
 			OutputStream out = new FileOutputStream(uploadFile);
 			while((read = fileInputStream.read(bytes)) != -1) {
+				totalRead += read;
 				out.write(bytes, 0, read);
 			}
 			out.flush();
@@ -98,7 +101,9 @@ public class TestController {
 		} catch (IOException e) {
 			System.out.println("Excepción: " + e.getMessage());
 			e.printStackTrace();
+			return Response.serverError().entity("Excepción: " + e.getMessage()).build();
 		}
+		System.out.println("Read " + totalRead + " bytes total");
 		
 		return Response.ok().build();
 	}

@@ -25,11 +25,16 @@
 				<input type="number" name="amount" id="txtAmount" v-model="newData.amount" />
 			</p>
 			<p>
+				<button type="button" id="btnSubmit" v-on:click="submitData()">Submit data</button>
+			</p>
+		</form>
+		<form id="frmUpload" method="post" enctype="multipart/form-data" action="/FileUploadTest/api/test/upload">
+			<p>
 				<label for="updFile">File</label>
-				<input type="file" name="file" id="updFile" />
+				<input type="file" name="file" id="updFile" size="20" accept=".pdf" />
 			</p>
 			<p>
-				<button type="button" id="btnSubmit" v-on:click="submitData()">Submit data</button>
+				<button type="submit" id="btnUpload">Submit file</button>
 			</p>
 		</form>
 	</div>
